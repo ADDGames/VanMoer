@@ -9,7 +9,7 @@ public abstract  class Rol {
 	@Column(name="gebruikersnaam")
 	private String gebruikersnaam;
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name="id")
 	private int id;
 	@Column(name="paswoord")
