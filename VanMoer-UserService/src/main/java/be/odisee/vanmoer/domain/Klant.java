@@ -9,11 +9,11 @@ import javax.persistence.Inheritance;
 import javax.persistence.Table;
 
 @Entity
-@Inheritance(strategy=javax.persistence.InheritanceType.JOINED)
+@Inheritance(strategy=javax.persistence.InheritanceType.TABLE_PER_CLASS )
 @Table(name="klant")
 public class Klant extends Rol {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	@Column(name="bedrijfsnaam")

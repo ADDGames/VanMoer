@@ -2,6 +2,7 @@ package be.odisee.vanmoer.domain;
 
 import javax.persistence.*;
 @MappedSuperclass
+@Inheritance(strategy=javax.persistence.InheritanceType.TABLE_PER_CLASS )
 @Table(name="rol")
 public abstract  class Rol {
 	@Column(name="familienaam")
@@ -9,7 +10,7 @@ public abstract  class Rol {
 	@Column(name="gebruikersnaam")
 	private String gebruikersnaam;
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	@Column(name="paswoord")
@@ -18,16 +19,6 @@ public abstract  class Rol {
 	private String status;
 	@Column(name="voornaam")
 	private String voornaam;
-
-
-
-	public void finalize() throws Throwable {
-
-	}
-
-	public Rol(){
-
-	}
 
 	public String getFamilienaam() {
 		return familienaam;
