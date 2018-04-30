@@ -9,10 +9,6 @@ public abstract  class Rol {
 	private String familienaam;
 	@Column(name="gebruikersnaam")
 	private String gebruikersnaam;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
 	@Column(name="paswoord")
 	private String paswoord;
 	@Column(name="status")
@@ -34,14 +30,6 @@ public abstract  class Rol {
 
 	public void setGebruikersnaam(String gebruikersnaam) {
 		this.gebruikersnaam = gebruikersnaam;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getPaswoord() {

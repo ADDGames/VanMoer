@@ -1,5 +1,7 @@
 package be.odisee.vanmoer.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +17,17 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping (path = "nieuwChauffeur", method=RequestMethod.POST)
+	@RequestMapping (path = "/getAll", method=RequestMethod.GET)
+	public List<Rol> getAllUsers ()	{
+		List<Rol> users = null;
+		try {
+			users = userService.getAllUsers();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return users;
+	}
+	@RequestMapping (path = "/nieuwChauffeur", method=RequestMethod.POST)
 	public Chauffeur nieuwChauffeur (@RequestBody Chauffeur chauffeur)	{
 		Chauffeur nieuwChauffeur = null;
 		try {
@@ -25,7 +37,7 @@ public class UserController {
 		}
 		return nieuwChauffeur;
 	}
-	@RequestMapping (path = "nieuwKlant", method=RequestMethod.POST)
+	@RequestMapping (path = "/nieuwKlant", method=RequestMethod.POST)
 	public Klant nieuwKlant (@RequestBody Klant klant)	{
 		Klant nieuwKlant = null;
 		try {
@@ -35,7 +47,7 @@ public class UserController {
 		}
 		return nieuwKlant;
 	}
-	@RequestMapping (path = "nieuwTransportplanner", method=RequestMethod.POST)
+	@RequestMapping (path = "/nieuwTransportplanner", method=RequestMethod.POST)
 	public Transportplanner nieuwTransportplanner (@RequestBody Transportplanner transportplanner)	{
 		Transportplanner nieuwTransportplanner = null;
 		try {
