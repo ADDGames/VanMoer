@@ -9,10 +9,10 @@ import be.odisee.vanmoer.controller.UserController;
 import be.odisee.vanmoer.domain.*;
 
 @SpringBootApplication
-public class VanMoerUserServiceApplication {
+public class UserServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VanMoerUserServiceApplication.class, args);
+		SpringApplication.run(UserServiceApplication.class, args);
 	}
 	@Bean
 	CommandLineRunner init(UserController controller) {
