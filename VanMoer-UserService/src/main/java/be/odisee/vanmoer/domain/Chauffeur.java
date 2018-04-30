@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.Table;
 
+
 @Entity
 @Inheritance(strategy=javax.persistence.InheritanceType.TABLE_PER_CLASS )
 @Table(name="chauffeur")

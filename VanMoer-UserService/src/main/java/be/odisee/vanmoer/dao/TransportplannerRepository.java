@@ -11,9 +11,8 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface TransportplannerRepository extends JpaRepository<Transportplanner, Integer> {
-	Optional<List<Transportplanner>> findByVoornaam(@Param("voornaam")String voornaam);
-	Optional<List<Transportplanner>> findByFamilienaam(@Param("familienaam")String familienaam);
-	Optional<List<Transportplanner>> findByGebruikersnaam(@Param("gebruikersnaam")String gebruikersnaam);
-	Optional<List<Transportplanner>> findByEmailadres(@Param("emailadres")String emailadres);
-	Transportplanner setStatusForTransportplanner(@Param("id")int id, @Param("status")String string);
+	List<Transportplanner> findByVoornaam(@Param("voornaam")String voornaam);
+	List<Transportplanner> findByFamilienaam(@Param("familienaam")String familienaam);
+	List<Transportplanner> findByGebruikersnaam(@Param("gebruikersnaam")String gebruikersnaam);
+	List<Transportplanner> findByEmailadres(@Param("emailadres")String emailadres);
 }

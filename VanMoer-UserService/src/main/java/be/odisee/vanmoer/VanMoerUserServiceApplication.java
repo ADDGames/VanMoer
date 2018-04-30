@@ -4,6 +4,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import be.odisee.vanmoer.controller.UserController;
 import be.odisee.vanmoer.dao.*;
 import be.odisee.vanmoer.domain.*;
 
@@ -14,11 +16,11 @@ public class VanMoerUserServiceApplication {
 		SpringApplication.run(VanMoerUserServiceApplication.class, args);
 	}
 	@Bean
-	CommandLineRunner init(KlantRepository klantRepo,TransportplannerRepository transRepo,ChauffeurRepository chaufRepo) {
+	CommandLineRunner init(UserController controller) {
 		return(evt) ->{
-		klantRepo.save(new Klant("KvoornaamK","KfamilienaamK","KgebruikersnaamK","KpaswoordK","KstatusK","KbedrijfsnaamK","KemailadresK"));
-		transRepo.save(new Transportplanner("TvoornaamT","TfamilienaamT","TgebruikersnaamT","TpaswoordT","TstatusT","TemailadresT"));
-		chaufRepo.save(new Chauffeur("CvoornaamC","CfamilienaamC","CgebruikersnaamC","CpaswoordC","CstatusC"));
+			controller.nieuwKlant(new Klant("KvoornaamK","KfamilienaamK","KgebruikersnaamK","KpaswoordK","KstatusK","KbedrijfsnaamK","KemailadresK"));
+			controller.nieuwTransportplanner(new Transportplanner("TvoornaamT","TfamilienaamT","TgebruikersnaamT","TpaswoordT","TstatusT","TemailadresT"));
+			controller.nieuwChauffeur(new Chauffeur("CvoornaamC","CfamilienaamC","CgebruikersnaamC","CpaswoordC","CstatusC"));
 		};
 	}
 }

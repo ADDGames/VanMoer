@@ -117,9 +117,9 @@ public class UserServiceImplementatie implements UserService {
 
 	@Override
 	public Chauffeur nieuwChauffeur(Chauffeur chauffeur) throws Exception {
-		if(chauffeurRepository.findByVoornaam(chauffeur.getVoornaam()) != null ||
-				(chauffeurRepository.findByFamilienaam(chauffeur.getFamilienaam()) != null) ||
-				(chauffeurRepository.findByGebruikersnaam(chauffeur.getGebruikersnaam()) != null)) {
+		if(!chauffeurRepository.findByVoornaam(chauffeur.getVoornaam()).isEmpty() ||
+				!chauffeurRepository.findByFamilienaam(chauffeur.getFamilienaam()).isEmpty() ||
+				!chauffeurRepository.findByGebruikersnaam(chauffeur.getGebruikersnaam()).isEmpty()) {
 			throw new Exception("Chauffeur already exists");
 		} else {
 			return chauffeurRepository.save(chauffeur);
@@ -128,10 +128,10 @@ public class UserServiceImplementatie implements UserService {
 
 	@Override
 	public Klant nieuwKlant(Klant klant) throws Exception {
-		if((klantRepository.findByVoornaam(klant.getVoornaam()) != null) ||
-				(klantRepository.findByFamilienaam(klant.getFamilienaam()) != null) ||
-				(klantRepository.findByGebruikersnaam(klant.getGebruikersnaam()) != null) ||
-				(klantRepository.findByEmailadres(klant.getEmailadres()) != null)) {
+		if(!klantRepository.findByVoornaam(klant.getVoornaam()).isEmpty() ||
+			!klantRepository.findByFamilienaam(klant.getFamilienaam()).isEmpty() ||
+			!klantRepository.findByGebruikersnaam(klant.getGebruikersnaam()).isEmpty() ||
+			!klantRepository.findByEmailadres(klant.getEmailadres()).isEmpty()) {
 			throw new Exception("Klant already exists");
 		} else {
 			return klantRepository.save(klant);
@@ -140,10 +140,10 @@ public class UserServiceImplementatie implements UserService {
 
 	@Override
 	public Transportplanner nieuwTransportplanner(Transportplanner transportplanner) throws Exception {
-		if((transportplannerRepository.findByVoornaam(transportplanner.getVoornaam()) != null) ||
-				(transportplannerRepository.findByFamilienaam(transportplanner.getFamilienaam()) != null) ||
-				(transportplannerRepository.findByGebruikersnaam(transportplanner.getGebruikersnaam()) != null) ||
-				(transportplannerRepository.findByEmailadres(transportplanner.getEmailadres()) != null)) {
+		if(!transportplannerRepository.findByVoornaam(transportplanner.getVoornaam()).isEmpty() ||
+				!transportplannerRepository.findByFamilienaam(transportplanner.getFamilienaam()).isEmpty() ||
+				!transportplannerRepository.findByGebruikersnaam(transportplanner.getGebruikersnaam()).isEmpty() ||
+				!transportplannerRepository.findByEmailadres(transportplanner.getEmailadres()).isEmpty()) {
 			throw new Exception("Transportplanner already exists");
 		} else {
 			return transportplannerRepository.save(transportplanner);
@@ -158,7 +158,8 @@ public class UserServiceImplementatie implements UserService {
 		} else if(chauffeur.getStatus() == "Bezet") {
 			throw new Exception("Chauffeur already has status 'Bezet'");
 		} else {
-			return chauffeurRepository.setStatusForChauffeur(chauffeur.getId(),"Bezet");
+			chauffeur.setStatus("Bezet");
+			return chauffeurRepository.save(chauffeur);
 		}
 	}
 
@@ -170,7 +171,8 @@ public class UserServiceImplementatie implements UserService {
 		} else if(chauffeur.getStatus() == "Inactief") {
 			throw new Exception("Chauffeur already has status 'Inactief'");
 		} else {
-			return chauffeurRepository.setStatusForChauffeur(chauffeur.getId(),"Inactief");
+			chauffeur.setStatus("Inactief");
+			return chauffeurRepository.save(chauffeur);
 		}
 	}
 
@@ -182,7 +184,8 @@ public class UserServiceImplementatie implements UserService {
 		} else if(klant.getStatus() == "Inactief") {
 			throw new Exception("Klant already has status 'Inactief'");
 		} else {
-			return klantRepository.setStatusForKlant(klant.getId(),"Inactief");
+			klant.setStatus("Inactief");
+			return klantRepository.save(klant);
 		}
 	}
 
@@ -194,7 +197,8 @@ public class UserServiceImplementatie implements UserService {
 		} else if(transportplanner.getStatus() == "Inactief") {
 			throw new Exception("Transportplanner already has status 'Inactief'");
 		} else {
-			return transportplannerRepository.setStatusForTransportplanner(transportplanner.getId(),"Inactief");
+			transportplanner.setStatus("Inactief");
+			return transportplannerRepository.save(transportplanner);
 		}
 	}
 
@@ -206,7 +210,8 @@ public class UserServiceImplementatie implements UserService {
 		} else if(chauffeur.getStatus() == "Actief") {
 			throw new Exception("Chauffeur already has status 'Actief'");
 		} else {
-			return chauffeurRepository.setStatusForChauffeur(chauffeur.getId(),"Actief");
+			chauffeur.setStatus("Actief");
+			return chauffeurRepository.save(chauffeur);
 		}
 	}
 
@@ -218,7 +223,8 @@ public class UserServiceImplementatie implements UserService {
 		} else if(klant.getStatus() == "Actief") {
 			throw new Exception("Klant already has status 'Actief'");
 		} else {
-			return klantRepository.setStatusForKlant(klant.getId(),"Actief");
+			klant.setStatus("Actief");
+			return klantRepository.save(klant);
 		}
 	}
 
@@ -230,7 +236,8 @@ public class UserServiceImplementatie implements UserService {
 		} else if(transportplanner.getStatus() == "Actief") {
 			throw new Exception("Transportplanner already has status 'Actief'");
 		} else {
-			return transportplannerRepository.setStatusForTransportplanner(transportplanner.getId(),"Actief");
+			transportplanner.setStatus("Actief");
+			return transportplannerRepository.save(transportplanner);
 		}
 	}
 
