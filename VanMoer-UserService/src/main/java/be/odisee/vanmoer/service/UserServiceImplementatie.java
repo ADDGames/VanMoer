@@ -1,7 +1,6 @@
 package be.odisee.vanmoer.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ObjectRetrievalFailureException;
@@ -41,78 +40,6 @@ public class UserServiceImplementatie implements UserService {
 			e.printStackTrace();
 		}
 		return users;
-	}
-
-	@Override
-	public List<Chauffeur> getAllChauffeurs() {
-		List<Chauffeur> chauffeurs = null;
-		try {
-			chauffeurs = chauffeurRepository.findAll();
-		}
-		catch (ObjectRetrievalFailureException e) {
-			e.printStackTrace();
-		}
-		return chauffeurs;
-	}
-
-	@Override
-	public List<Klant> getAllKlanten() {
-		List<Klant> klanten = null;
-		try {
-			klanten = klantRepository.findAll();
-		}
-		catch (ObjectRetrievalFailureException e) {
-			e.printStackTrace();
-		}
-		return klanten;
-	}
-
-	@Override
-	public List<Transportplanner> getAllTransportplanners() {
-		List<Transportplanner> transportplanners = null;
-		try {
-			transportplanners = transportplannerRepository.findAll();
-		}
-		catch (ObjectRetrievalFailureException e) {
-			e.printStackTrace();
-		}
-		return transportplanners;
-	}
-
-	@Override
-	public Chauffeur getChauffeurById(int chauffeurId) {
-		Chauffeur chauffeur = null;
-		try {
-			chauffeur = chauffeurRepository.findOne(chauffeurId);
-		}
-		catch (ObjectRetrievalFailureException e) {
-			e.printStackTrace();
-		}
-		return chauffeur;
-	}
-
-	@Override
-	public Klant getKlantById(int klantId) {
-		Klant klant = null;
-		try {
-			klant = klantRepository.findOne(klantId);
-		}
-		catch (ObjectRetrievalFailureException e) {
-			e.printStackTrace();
-		}
-		return klant;
-	}
-
-	@Override
-	public Transportplanner getTransportplannerById(int transportplannerId) {
-		Transportplanner transportplanner = null;
-		try {
-			transportplanner = transportplannerRepository.findOne(transportplannerId);
-		}
-		catch (ObjectRetrievalFailureException e) {
-			e.printStackTrace();
-		}
-		return transportplanner;
 	}
 
 	@Override
