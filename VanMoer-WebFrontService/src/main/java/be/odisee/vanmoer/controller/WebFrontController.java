@@ -7,14 +7,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import be.odisee.vanmoer.service.HomeWebfrontService;
+import be.odisee.vanmoer.service.WebFrontService;
 
 @Controller
 @RequestMapping("/")
-public class HomeController {
+public class WebFrontController {
 	
 	@Autowired
-	protected HomeWebfrontService homeWebfrontService = null;
+	protected WebFrontService homeWebfrontService = null;
 	
 	@RequestMapping(value = { "/", "index.html"}, method=RequestMethod.GET)
 	public String index(ModelMap model) {

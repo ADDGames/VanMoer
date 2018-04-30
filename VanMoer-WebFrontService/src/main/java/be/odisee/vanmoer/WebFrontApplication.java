@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class LVMWebfrontHomeApplication {
+public class WebFrontApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LVMWebfrontHomeApplication.class, args);
+		SpringApplication.run(WebFrontApplication.class, args);
 	}
 }
 
