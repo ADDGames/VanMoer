@@ -10,7 +10,7 @@ public interface UserService {
 	public Klant nieuwKlant(Klant klant) throws Exception;
 	public Transportplanner nieuwTransportplanner(Transportplanner transportplanner) throws Exception;
 	public Chauffeur setBezet(int chauffeurId) throws Exception;
-	public Chauffeur setChauffeurStatus(int chauffeurId) throws Exception;
-	public Klant setKlantStatus(int klantId) throws Exception;
-	public Transportplanner setTransportplannerStatus(int transportplannerId) throws Exception;
+	public Chauffeur setChauffeurStatus(int chauffeurId, String status) throws Exception;
+	public Klant setKlantStatus(int klantId, String status) throws Exception;
+	public Transportplanner setTransportplannerStatus(int transportplannerId, String status) throws Exception;
 }

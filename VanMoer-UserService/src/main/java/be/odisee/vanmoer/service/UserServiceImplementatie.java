@@ -91,20 +91,17 @@ public class UserServiceImplementatie implements UserService {
 	}
 
 	@Override
-	public Chauffeur setChauffeurInactief(int chauffeurId) throws Exception {
+	public Chauffeur setChauffeurStatus(int chauffeurId, String status) throws Exception {
 		Chauffeur chauffeur = chauffeurRepository.findOne(chauffeurId);
 		if(chauffeur == null) {
 			throw new Exception("Chauffeur does not exist");
-		} else if(chauffeur.getStatus() == "Inactief") {
-			throw new Exception("Chauffeur already has status 'Inactief'");
-		} else {
-			chauffeur.setStatus("Inactief");
-			return chauffeurRepository.save(chauffeur);
 		}
+		
+		return chauffeurRepository.save(chauffeur);
 	}
 
 	@Override
-	public Klant setKlantInactief(int klantId) throws Exception {
+	public Klant setKlantStatus(int klantId, String status) throws Exception {
 		Klant klant = klantRepository.findOne(klantId);
 		if(klant == null) {
 			throw new Exception("Klant does not exist");
@@ -117,7 +114,7 @@ public class UserServiceImplementatie implements UserService {
 	}
 
 	@Override
-	public Transportplanner setTransportplannerInactief(int transportplannerId) throws Exception {
+	public Transportplanner setTransportplannerStatus(int transportplannerId, String status) throws Exception {
 		Transportplanner transportplanner = transportplannerRepository.findOne(transportplannerId);
 		if(transportplanner == null) {
 			throw new Exception("Transportplanner does not exist");
@@ -125,45 +122,6 @@ public class UserServiceImplementatie implements UserService {
 			throw new Exception("Transportplanner already has status 'Inactief'");
 		} else {
 			transportplanner.setStatus("Inactief");
-			return transportplannerRepository.save(transportplanner);
-		}
-	}
-
-	@Override
-	public Chauffeur setChauffeurActief(int chauffeurId) throws Exception {
-		Chauffeur chauffeur = chauffeurRepository.findOne(chauffeurId);
-		if(chauffeur == null) {
-			throw new Exception("Chauffeur does not exist");
-		} else if(chauffeur.getStatus() == "Actief") {
-			throw new Exception("Chauffeur already has status 'Actief'");
-		} else {
-			chauffeur.setStatus("Actief");
-			return chauffeurRepository.save(chauffeur);
-		}
-	}
-
-	@Override
-	public Klant setKlantActief(int klantId) throws Exception {
-		Klant klant = klantRepository.findOne(klantId);
-		if(klant == null) {
-			throw new Exception("Klant does not exist");
-		} else if(klant.getStatus() == "Actief") {
-			throw new Exception("Klant already has status 'Actief'");
-		} else {
-			klant.setStatus("Actief");
-			return klantRepository.save(klant);
-		}
-	}
-
-	@Override
-	public Transportplanner setTransportplannerActief(int transportplannerId) throws Exception {
-		Transportplanner transportplanner = transportplannerRepository.findOne(transportplannerId);
-		if(transportplanner == null) {
-			throw new Exception("Transportplanner does not exist");
-		} else if(transportplanner.getStatus() == "Actief") {
-			throw new Exception("Transportplanner already has status 'Actief'");
-		} else {
-			transportplanner.setStatus("Actief");
 			return transportplannerRepository.save(transportplanner);
 		}
 	}
