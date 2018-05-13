@@ -13,7 +13,7 @@ import be.odisee.vanmoer.domain.Transportplanner;
 import be.odisee.vanmoer.dao.*;
 
 @Service
-public class UserServiceImplementatie implements UserService {
+public class TransportServiceImplementatie implements TransportService {
 
 	@Autowired
 	private ChauffeurRepository chauffeurRepository = null;
@@ -74,6 +74,19 @@ public class UserServiceImplementatie implements UserService {
 			throw new Exception("Transportplanner already exists");
 		} else {
 			return transportplannerRepository.save(transportplanner);
+		}
+	}
+
+	@Override
+	public Chauffeur setBezet(int chauffeurId) throws Exception {
+		Chauffeur chauffeur = chauffeurRepository.findOne(chauffeurId);
+		if(chauffeur == null) {
+			throw new Exception("Chauffeur does not exist");
+		} else if(chauffeur.getStatus() == "Bezet") {
+			throw new Exception("Chauffeur already has status 'Bezet'");
+		} else {
+			chauffeur.setStatus("Bezet");
+			return chauffeurRepository.save(chauffeur);
 		}
 	}
 

@@ -1,16 +1,6 @@
 package be.odisee.vanmoer.controller;
 
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import be.odisee.vanmoer.LVMWebfrontHomeApplication;
 import be.odisee.vanmoer.domain.Locatie;
