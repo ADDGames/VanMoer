@@ -3,6 +3,7 @@ package be.odisee.vanmoer.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,12 +13,13 @@ import be.odisee.vanmoer.domain.*;
 import be.odisee.vanmoer.service.UserService;
 
 @RestController
+@RequestMapping("/")
 public class UserController {
 	
 	@Autowired
 	UserService userService;
 
-	@RequestMapping (path = "/getAll", method=RequestMethod.GET)
+	@RequestMapping (value = "/getAllUsers", method=RequestMethod.GET,produces = MediaType.APPLICATION_JSON_UTF8_VALUE )
 	public List<Rol> getAllUsers ()	{
 		List<Rol> users = null;
 		try {
@@ -27,7 +29,7 @@ public class UserController {
 		}
 		return users;
 	}
-	@RequestMapping (path = "/nieuwChauffeur", method=RequestMethod.POST)
+	@RequestMapping (value = "/nieuwChauffeur", method=RequestMethod.POST)
 	public Chauffeur nieuwChauffeur (@RequestBody Chauffeur chauffeur)	{
 		Chauffeur nieuwChauffeur = null;
 		try {
@@ -37,7 +39,7 @@ public class UserController {
 		}
 		return nieuwChauffeur;
 	}
-	@RequestMapping (path = "/nieuwKlant", method=RequestMethod.POST)
+	@RequestMapping (value = "/nieuwKlant", method=RequestMethod.POST)
 	public Klant nieuwKlant (@RequestBody Klant klant)	{
 		Klant nieuwKlant = null;
 		try {
@@ -47,7 +49,7 @@ public class UserController {
 		}
 		return nieuwKlant;
 	}
-	@RequestMapping (path = "/nieuwTransportplanner", method=RequestMethod.POST)
+	@RequestMapping (value = "/nieuwTransportplanner", method=RequestMethod.POST)
 	public Transportplanner nieuwTransportplanner (@RequestBody Transportplanner transportplanner)	{
 		Transportplanner nieuwTransportplanner = null;
 		try {

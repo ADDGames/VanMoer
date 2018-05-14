@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import be.odisee.vanmoer.controller.UserController;
+import be.odisee.vanmoer.controller.*;
 import be.odisee.vanmoer.domain.*;
 
 @SpringBootApplication

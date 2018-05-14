@@ -1,5 +1,6 @@
 package be.odisee.vanmoer.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class UserServiceImplementatie implements UserService {
 	
 	@Override
 	public List<Rol> getAllUsers(){
-		List<Rol> users = null;
+		List<Rol> users = new ArrayList();
 		List<Chauffeur> chauffeurs = null;
 		List<Klant> klanten = null;
 		List<Transportplanner> transportplanners = null;
