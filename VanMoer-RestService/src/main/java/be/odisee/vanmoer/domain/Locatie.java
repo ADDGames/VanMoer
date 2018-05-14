@@ -6,9 +6,11 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -26,6 +28,7 @@ public class Locatie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
+	@OneToMany(targetEntity=Product.class, mappedBy="locatie", fetch=FetchType.EAGER)
 	@Column(name="producten")
 	private List<Product> producten;
 	@Column(name="status")
