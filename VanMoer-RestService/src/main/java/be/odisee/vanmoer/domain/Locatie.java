@@ -28,7 +28,7 @@ public class Locatie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
-	@OneToMany(targetEntity=Product.class, mappedBy="locatie", fetch=FetchType.EAGER)
+	@OneToMany(targetEntity=Product.class, mappedBy="id")
 	@Column(name="producten")
 	private List<Product> producten;
 	@Column(name="status")
@@ -39,6 +39,7 @@ public class Locatie {
 		this.setProducten(producten);
 		this.setStatus(status);
 	}
+	public Locatie() {}
 	public String getAdres() {
 		return adres;
 	}

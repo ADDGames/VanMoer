@@ -5,11 +5,14 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 /**
@@ -32,7 +35,8 @@ public class Aanvraag {
 	private int id;
 	@Column(name="klantId")
 	private int klantId;
-	@Column(name="producten")
+	@ElementCollection
+	@JoinColumn(name="producten")
 	private List<Integer> producten;
 	@Column(name="status")
 	private String status;
@@ -50,6 +54,9 @@ public class Aanvraag {
 		this.setStatus(status);
 		this.setTijd(tijd);
 		this.setVertrekpuntId(vertrekpuntId);
+	}
+
+	public Aanvraag() {
 	}
 	
 	public int getBestemmingId() {

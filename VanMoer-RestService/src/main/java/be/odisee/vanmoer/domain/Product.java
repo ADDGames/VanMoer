@@ -33,6 +33,7 @@ public class Product {
 		this.setId(id);
 		this.setNaam(naam);
 	}
+	public Product() {}
 	public int getAantal() {
 		return aantal;
 	}
