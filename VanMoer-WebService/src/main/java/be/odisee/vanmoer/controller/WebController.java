@@ -19,7 +19,7 @@ import be.odisee.vanmoer.service.WebServiceImplementatie;
 public class WebController {
 
 	@Autowired
-	protected WebService webService = new WebServiceImplementatie();
+	protected WebService webService = null;
 	
 	@RequestMapping(value={"/login","/login.html"},method=RequestMethod.GET)
     public String login(@ModelAttribute("nieuwlogin") Login login,ModelMap model){

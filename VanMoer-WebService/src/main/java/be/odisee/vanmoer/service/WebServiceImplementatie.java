@@ -40,7 +40,7 @@ public class WebServiceImplementatie implements WebService {
 	}
 	@Override
 	public String Login(Login login) {
-		/*boolean correct = false;
+		boolean correct = false;
 		try {
 		ResponseEntity<Object[]> responseEntity = authRestTemplate().getForEntity("http://localhost:8081/getAllUsers", Object[].class);
 		List<Object> objList=Arrays.asList(responseEntity.getBody());
@@ -55,9 +55,7 @@ public class WebServiceImplementatie implements WebService {
 		}
 		if(correct)
 			return "Login succesfull";
-		else*/
-
-    	System.out.println("Login failed");
+		else
 			return "Login failed";
 	}
 }
